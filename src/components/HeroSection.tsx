@@ -1,4 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 import heroImage from '@/assets/hero-restaurant.jpg';
 import { ChevronDown } from 'lucide-react';
 
@@ -43,12 +44,12 @@ const HeroSection = () => {
           </p>
 
           {/* CTA Button */}
-          <a
-            href="#cardapio"
-            className="mt-8 px-8 py-4 bg-secondary text-secondary-foreground font-semibold text-lg rounded-lg hoverLift animatePulseGold transition-all"
+          <Link
+            to="/cardapio"
+            className="mt-8 px-8 py-4 bg-secondary text-secondary-foreground font-semibold text-lg rounded-lg hoverLift transition-all"
           >
             {t.hero.cta}
-          </a>
+          </Link>
 
           {/* Scroll Indicator */}
           <a
