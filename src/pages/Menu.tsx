@@ -1,17 +1,15 @@
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import Header from '@/components/Header';
-import HeroSection from '@/components/HeroSection';
-import HistorySection from '@/components/HistorySection';
+import MenuSection from '@/components/MenuSection';
 import Footer from '@/components/Footer';
 
-const Index = () => {
+const Menu = () => {
   return (
     <LanguageProvider>
       <div className="flexColumn min-h-screen">
         <Header />
-        <main className="flex-1">
-          <HeroSection />
-          <HistorySection />
+        <main className="flex-1 pt-20">
+          <MenuSection />
         </main>
         <Footer />
       </div>
@@ -19,4 +17,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Menu;

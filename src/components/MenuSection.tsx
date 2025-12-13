@@ -1,20 +1,27 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useState } from 'react';
+import foodCoxinha from '@/assets/food-coxinha.jpg';
+import foodFeijoada from '@/assets/food-feijoada.jpg';
+import foodCaipirinha from '@/assets/food-caipirinha.jpg';
+import foodBrigadeiro from '@/assets/food-brigadeiro.jpg';
 
 interface MenuItem {
   name: { pt: string; en: string; it: string };
   description: { pt: string; en: string; it: string };
   price: string;
+  image?: string;
 }
 
 interface MenuCategory {
   id: string;
   items: MenuItem[];
+  headerImage: string;
 }
 
 const menuData: MenuCategory[] = [
   {
     id: 'appetizers',
+    headerImage: foodCoxinha,
     items: [
       {
         name: { pt: 'Coxinha', en: 'Coxinha', it: 'Coxinha' },
@@ -24,6 +31,7 @@ const menuData: MenuCategory[] = [
           it: 'Crocchetta di pollo con formaggio cremoso',
         },
         price: '€3.50',
+        image: foodCoxinha,
       },
       {
         name: { pt: 'Pão de Queijo', en: 'Cheese Bread', it: 'Pane al Formaggio' },
@@ -56,6 +64,7 @@ const menuData: MenuCategory[] = [
   },
   {
     id: 'mains',
+    headerImage: foodFeijoada,
     items: [
       {
         name: { pt: 'Feijoada Completa', en: 'Complete Feijoada', it: 'Feijoada Completa' },
@@ -65,6 +74,7 @@ const menuData: MenuCategory[] = [
           it: 'Fagioli neri con carne, riso, farofa, cavolo e arancia',
         },
         price: '€18.00',
+        image: foodFeijoada,
       },
       {
         name: { pt: 'Picanha Grelhada', en: 'Grilled Picanha', it: 'Picanha alla Griglia' },
@@ -97,6 +107,7 @@ const menuData: MenuCategory[] = [
   },
   {
     id: 'drinks',
+    headerImage: foodCaipirinha,
     items: [
       {
         name: { pt: 'Caipirinha', en: 'Caipirinha', it: 'Caipirinha' },
@@ -106,6 +117,7 @@ const menuData: MenuCategory[] = [
           it: 'Cachaça, lime, zucchero e ghiaccio - il classico brasiliano',
         },
         price: '€8.00',
+        image: foodCaipirinha,
       },
       {
         name: { pt: 'Suco de Maracujá', en: 'Passion Fruit Juice', it: 'Succo di Maracuja' },
@@ -138,6 +150,7 @@ const menuData: MenuCategory[] = [
   },
   {
     id: 'desserts',
+    headerImage: foodBrigadeiro,
     items: [
       {
         name: { pt: 'Brigadeiro', en: 'Brigadeiro', it: 'Brigadeiro' },
@@ -147,6 +160,7 @@ const menuData: MenuCategory[] = [
           it: 'Tartufo di cioccolato con latte condensato (4 pezzi)',
         },
         price: '€5.00',
+        image: foodBrigadeiro,
       },
       {
         name: { pt: 'Pudim de Leite', en: 'Milk Pudding', it: 'Budino di Latte' },
@@ -209,6 +223,17 @@ const MenuSection = () => {
           </p>
         </div>
 
+        {/* Category Header Image */}
+        {currentCategory && (
+          <div className="mb-12 rounded-2xl overflow-hidden shadow-xl max-w-3xl mx-auto">
+            <img
+              src={currentCategory.headerImage}
+              alt={activeCategory}
+              className="w-full h-48 md:h-64 object-cover"
+            />
+          </div>
+        )}
+
         {/* Category Tabs */}
         <div className="flexCenter flex-wrap gap-3 md:gap-4 mb-12">
           {categories.map((cat) => (
@@ -231,20 +256,29 @@ const MenuSection = () => {
           {currentCategory?.items.map((item, index) => (
             <div
               key={index}
-              className="w-full md:w-[calc(50%-12px)] bg-card rounded-xl p-6 hoverLift shadow-sm border border-border"
+              className="w-full md:w-[calc(50%-12px)] bg-card rounded-xl overflow-hidden hoverLift shadow-sm border border-border"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="flexBetween items-start gap-4 mb-3">
-                <h3 className="font-display text-xl font-semibold text-foreground">
-                  {item.name[language]}
-                </h3>
-                <span className="font-display text-xl font-bold text-brazil-green whitespace-nowrap">
-                  {item.price}
-                </span>
+              {item.image && (
+                <img
+                  src={item.image}
+                  alt={item.name[language]}
+                  className="w-full h-40 object-cover"
+                />
+              )}
+              <div className="p-6">
+                <div className="flexBetween items-start gap-4 mb-3">
+                  <h3 className="font-display text-xl font-semibold text-foreground">
+                    {item.name[language]}
+                  </h3>
+                  <span className="font-display text-xl font-bold text-brazil-green whitespace-nowrap">
+                    {item.price}
+                  </span>
+                </div>
+                <p className="font-body text-muted-foreground leading-relaxed">
+                  {item.description[language]}
+                </p>
               </div>
-              <p className="font-body text-muted-foreground leading-relaxed">
-                {item.description[language]}
-              </p>
             </div>
           ))}
         </div>
