@@ -1,7 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'react-router-dom';
 import heroImage from '@/assets/hero-restaurant.jpg';
-import { ChevronDown } from 'lucide-react';
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -50,14 +49,6 @@ const HeroSection = () => {
           >
             {t.hero.cta}
           </Link>
-
-          {/* Scroll Indicator */}
-          <a
-            href="#historia"
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 flexColumn items-center gap-2 text-primary-foreground/70 hover:text-secondary transition-colors"
-          >
-            <ChevronDown className="w-8 h-8 animate-bounce" />
-          </a>
         </div>
       </div>
 
