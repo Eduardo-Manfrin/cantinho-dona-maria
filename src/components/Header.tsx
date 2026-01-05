@@ -1,5 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Globe, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import BrazilFlag from './BrazilFlag';
@@ -9,15 +9,33 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const lastScrollY = useRef(0);
   const location = useLocation();
+
+  const isMenuPage = location.pathname === '/cardapio';
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 20);
+
+      // Hide/show on scroll only on menu page
+      if (isMenuPage) {
+        if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+          setIsHidden(true);
+        } else {
+          setIsHidden(false);
+        }
+      } else {
+        setIsHidden(false);
+      }
+
+      lastScrollY.current = currentScrollY;
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMenuPage]);
 
   const languages = [
     { code: 'pt' as const, label: 'Português', flag: '🇧🇷' },
@@ -41,7 +59,7 @@ const Header = () => {
         isScrolled 
           ? 'bg-primary/98 backdrop-blur-md shadow-lg' 
           : 'bg-primary/95 backdrop-blur-sm'
-      }`}
+      } ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}
     >
       <div className="container mx-auto px-6">
         <div className="flexBetween h-16 md:h-20">
