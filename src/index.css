@@ -1,86 +1,91 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Brazilian Flag Inspired Palette - Professional & Harmonious */
-    --background: 45 30% 97%;
-    --foreground: 30 20% 15%;
+    /* TROPICÁLIA Color Palette - Extracted from logo */
+    --background: 40 40% 97%;
+    --foreground: 160 60% 15%;
 
-    --card: 45 25% 95%;
-    --card-foreground: 30 20% 15%;
+    --card: 40 35% 95%;
+    --card-foreground: 160 60% 15%;
 
-    --popover: 45 25% 95%;
-    --popover-foreground: 30 20% 15%;
+    --popover: 40 35% 95%;
+    --popover-foreground: 160 60% 15%;
 
-    /* Forest Green - Primary */
-    --primary: 145 45% 28%;
-    --primary-foreground: 45 30% 97%;
+    /* Deep Forest Green - Primary (from logo text) */
+    --primary: 160 55% 22%;
+    --primary-foreground: 40 40% 97%;
 
-    /* Golden Yellow - Secondary */
-    --secondary: 45 90% 55%;
-    --secondary-foreground: 30 20% 15%;
+    /* Warm Orange - Secondary (from logo gradient) */
+    --secondary: 20 85% 55%;
+    --secondary-foreground: 40 40% 97%;
 
-    /* Deep Blue - Accent */
-    --accent: 215 70% 35%;
-    --accent-foreground: 45 30% 97%;
+    /* Golden Yellow - Accent (from logo gradient) */
+    --accent: 42 90% 55%;
+    --accent-foreground: 160 60% 15%;
 
-    --muted: 45 15% 90%;
-    --muted-foreground: 30 15% 45%;
+    --muted: 40 20% 92%;
+    --muted-foreground: 160 30% 40%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 45 20% 85%;
-    --input: 45 20% 85%;
-    --ring: 145 45% 28%;
+    --border: 40 25% 88%;
+    --input: 40 25% 88%;
+    --ring: 160 55% 22%;
 
     --radius: 8px;
 
-    /* Custom Colors for Brazilian Theme */
-    --brazil-green: 145 45% 28%;
-    --brazil-green-light: 145 40% 40%;
-    --brazil-yellow: 45 90% 55%;
-    --brazil-yellow-light: 45 85% 65%;
-    --brazil-blue: 215 70% 35%;
-    --brazil-blue-light: 215 60% 50%;
-    --cream: 45 30% 97%;
-    --cream-dark: 45 25% 92%;
-    --warm-brown: 30 20% 15%;
+    /* Tropicália Custom Colors */
+    --tropical-green: 160 55% 22%;
+    --tropical-green-light: 155 45% 35%;
+    --tropical-orange: 20 85% 55%;
+    --tropical-orange-light: 25 80% 65%;
+    --tropical-yellow: 42 90% 55%;
+    --tropical-yellow-light: 45 85% 70%;
+    --tropical-red: 10 75% 50%;
+    --cream: 40 40% 97%;
+    --cream-dark: 40 30% 92%;
+    --warm-beige: 35 35% 90%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(145 45% 28% / 0.95), hsl(145 40% 35% / 0.9));
-    --gradient-gold: linear-gradient(135deg, hsl(45 90% 55%), hsl(45 85% 65%));
-    --gradient-section: linear-gradient(180deg, hsl(45 30% 97%), hsl(45 25% 92%));
+    --gradient-tropical: linear-gradient(180deg, 
+      hsl(10 75% 50%), 
+      hsl(20 85% 55%), 
+      hsl(35 90% 60%), 
+      hsl(80 50% 45%), 
+      hsl(160 55% 30%)
+    );
+    --gradient-sunset: linear-gradient(135deg, hsl(20 85% 55%), hsl(42 90% 55%));
+    --gradient-forest: linear-gradient(135deg, hsl(160 55% 22%), hsl(155 45% 35%));
 
     /* Shadows */
-    --shadow-sm: 0 2px 8px hsl(30 20% 15% / 0.08);
-    --shadow-md: 0 4px 16px hsl(30 20% 15% / 0.12);
-    --shadow-lg: 0 8px 32px hsl(30 20% 15% / 0.16);
-    --shadow-gold: 0 4px 20px hsl(45 90% 55% / 0.3);
+    --shadow-sm: 0 2px 8px hsl(160 55% 22% / 0.06);
+    --shadow-md: 0 4px 20px hsl(160 55% 22% / 0.1);
+    --shadow-lg: 0 8px 40px hsl(160 55% 22% / 0.15);
+    --shadow-glow: 0 4px 30px hsl(42 90% 55% / 0.25);
   }
 
   .dark {
-    --background: 30 20% 10%;
-    --foreground: 45 30% 95%;
-    --card: 30 18% 14%;
-    --card-foreground: 45 30% 95%;
-    --popover: 30 18% 14%;
-    --popover-foreground: 45 30% 95%;
-    --primary: 145 45% 35%;
-    --primary-foreground: 45 30% 97%;
-    --secondary: 45 85% 50%;
-    --secondary-foreground: 30 20% 10%;
-    --accent: 215 60% 45%;
-    --accent-foreground: 45 30% 97%;
-    --muted: 30 15% 20%;
-    --muted-foreground: 45 15% 60%;
-    --border: 30 15% 25%;
-    --input: 30 15% 25%;
-    --ring: 145 45% 35%;
+    --background: 160 30% 8%;
+    --foreground: 40 40% 95%;
+    --card: 160 25% 12%;
+    --card-foreground: 40 40% 95%;
+    --popover: 160 25% 12%;
+    --popover-foreground: 40 40% 95%;
+    --primary: 155 45% 40%;
+    --primary-foreground: 40 40% 97%;
+    --secondary: 20 80% 60%;
+    --secondary-foreground: 40 40% 97%;
+    --accent: 42 85% 55%;
+    --accent-foreground: 160 30% 10%;
+    --muted: 160 20% 18%;
+    --muted-foreground: 40 20% 65%;
+    --border: 160 20% 22%;
+    --input: 160 20% 22%;
+    --ring: 155 45% 40%;
   }
 }
 
@@ -96,10 +101,14 @@
   body {
     @apply bg-background text-foreground font-body antialiased;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
 }
 
 @layer utilities {
-  /* Flexbox-only layout utilities */
+  /* Flexbox layout utilities */
   .flexCenter {
     display: flex;
     align-items: center;
@@ -122,18 +131,18 @@
     flex-wrap: wrap;
   }
 
-  /* Brazilian themed decorations */
-  .brazilDivider {
+  /* Tropicália Decorations */
+  .tropicalDivider {
     width: 80px;
-    height: 4px;
-    background: var(--gradient-gold);
+    height: 3px;
+    background: var(--gradient-sunset);
     border-radius: 2px;
   }
 
-  .brazilDividerWide {
-    width: 120px;
-    height: 4px;
-    background: var(--gradient-gold);
+  .tropicalDividerWide {
+    width: 140px;
+    height: 3px;
+    background: var(--gradient-sunset);
     border-radius: 2px;
   }
 
@@ -141,7 +150,7 @@
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -149,10 +158,19 @@
     }
   }
 
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   @keyframes slideInLeft {
     from {
       opacity: 0;
-      transform: translateX(-30px);
+      transform: translateX(-40px);
     }
     to {
       opacity: 1;
@@ -160,40 +178,145 @@
     }
   }
 
-  @keyframes pulse-gold {
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes float {
     0%, 100% {
-      box-shadow: 0 0 0 0 hsl(45 90% 55% / 0.4);
+      transform: translateY(0);
     }
     50% {
-      box-shadow: 0 0 0 15px hsl(45 90% 55% / 0);
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(42 90% 55% / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 20px 8px hsl(42 90% 55% / 0.2);
     }
   }
 
   .animateFadeInUp {
-    animation: fadeInUp 0.6s ease-out forwards;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animateFadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
   }
 
   .animateSlideInLeft {
-    animation: slideInLeft 0.6s ease-out forwards;
+    animation: slideInLeft 0.8s ease-out forwards;
   }
 
-  .animatePulseGold {
-    animation: pulse-gold 2s infinite;
+  .animateSlideInRight {
+    animation: slideInRight 0.8s ease-out forwards;
   }
 
+  .animateFloat {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animateShimmer {
+    background: linear-gradient(90deg, 
+      transparent, 
+      hsl(42 90% 55% / 0.3), 
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .animatePulseGlow {
+    animation: pulse-glow 2.5s infinite;
+  }
+
+  /* Hover Effects */
   .hoverLift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hoverLift:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
   }
 
-  .textGradientGold {
-    background: var(--gradient-gold);
+  .hoverScale {
+    transition: transform 0.3s ease;
+  }
+
+  .hoverScale:hover {
+    transform: scale(1.03);
+  }
+
+  .hoverZoom {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hoverZoom:hover {
+    transform: scale(1.08);
+  }
+
+  /* Text Gradients */
+  .textGradientSunset {
+    background: var(--gradient-sunset);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .textGradientForest {
+    background: var(--gradient-forest);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Underline animation */
+  .underlineHover {
+    position: relative;
+  }
+
+  .underlineHover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-sunset);
+    transition: width 0.3s ease;
+  }
+
+  .underlineHover:hover::after {
+    width: 100%;
+  }
+
+  /* Stagger animations */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
 }
